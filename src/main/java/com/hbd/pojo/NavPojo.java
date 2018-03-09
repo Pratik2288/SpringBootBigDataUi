@@ -1,12 +1,20 @@
 package com.hbd.pojo;
 
-public class NavPojo {
-	
-	@Override
-	public String toString() {
-		return "NavPojo [id=" + id + ", navDate=" + navDate + ", navvalue=" + navvalue + ", compName=" + compName + "]";
-	}
+import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="NAV_DATA")
+public class NavPojo implements Serializable { 
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	int id;
 	String navDate;
 	String navvalue;
@@ -42,6 +50,11 @@ public class NavPojo {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "NavPojo [id=" + id + ", navDate=" + navDate + ", navvalue=" + navvalue + ", compName=" + compName + "]";
 	}
 
 }
