@@ -16,15 +16,13 @@ public class GraphController {
 	
 	@GetMapping(value = "/navdata")
 	public String getNavData() {
-		int i=0;
-		while(i<=100 ) {
+		
+		for(int i=0;i<10;i++ ) {
 		NavPojo navPojo = new NavPojo();
 		navPojo.setNavDate(new Date().toString());
 		navPojo.setCompName("DST-"+i);
 		navPojo.setNavvalue(new Integer(580+i).toString());
-		navS.addNav(navPojo);
-		i+=i;
-		
+		navS.addNav(navPojo);		
 		}
 		
 		System.out.println("navS.getNavData()"+navS.getNavData());
